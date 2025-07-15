@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private KeyCode leftKey = KeyCode.A;
-    [SerializeField] private KeyCode rightKey = KeyCode.D;
-    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+
+    [Header("Jumping")]
     [SerializeField] private float gravityAmplifier = 1.5f;
     [SerializeField] private float playerHeight = 1.1f;
 
+    [Header("Keybinds")]
+    [SerializeField] private KeyCode leftKey = KeyCode.A;
+    [SerializeField] private KeyCode rightKey = KeyCode.D;
+    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     private Rigidbody2D rb;
     private float ogGrav;
 
