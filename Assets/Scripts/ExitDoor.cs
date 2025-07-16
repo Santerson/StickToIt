@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class ExitDoor : MonoBehaviour
 {
     [SerializeField] private string nextSceneName;
-    [SerializeField] private GameObject pressEPrompt;
+    [SerializeField] private GameObject pressEPrompt; // drag your Canvas/Text object here
 
     private bool playerInRange = false;
 
@@ -43,4 +43,3 @@ public class ExitDoor : MonoBehaviour
         }
     }
 }
-
