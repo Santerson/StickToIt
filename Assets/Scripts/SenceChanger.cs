@@ -19,7 +19,7 @@ public class SenceChanger : MonoBehaviour
         
     }
     //Scence Change.
-    void LevelChange()
+    public void LevelChange()
     {
         SceneManager.LoadScene(Scence);
     }
