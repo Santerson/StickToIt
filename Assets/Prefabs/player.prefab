@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.2
   m_Material: {fileID: 6200000, guid: 34c97ae192812ff42b2390b225b9656a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -136,8 +136,8 @@ MonoBehaviour:
   rightRaycastOffset: 0.2
   moveSpeed: 5
   jumpForce: 7
-  gravityAmplifier: 2
-  kyoteeTime: 0.2
+  gravityAmplifier: 3
+  KyoteeTime: 0.2
   leftKey: 97
   rightKey: 100
   jumpKey: 32

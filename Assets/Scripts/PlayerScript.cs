@@ -26,8 +26,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Jumping")]
     [Tooltip("How much should gravity be set to after the player releases the jump button mid-air?")]
     [SerializeField] private float gravityAmplifier = 1.5f;
-    [Tooltip("Owo screw that spelling")]
-    [SerializeField] private float CoyoteTime = 0.2f;
+    [Tooltip("BAD SPELLING LIVES ON EHEHEHEHEHHEHEHEH (seconds)")]
+    [SerializeField] private float KyoteeTime = 0.2f;
 
     [Header("Keybinds")]
     [SerializeField] private KeyCode leftKey = KeyCode.A;
@@ -36,7 +36,8 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private float ogGrav;
-    private float CoyoteTimeLeft = 0f;
+    private float KyoteeTimeLeft = 0f;
+    bool isJumping = false;
 
     private void Awake()
     {
@@ -78,8 +79,14 @@ public class PlayerScript : MonoBehaviour
 
         if (grounded && Input.GetKeyDown(jumpKey))
         {
+            isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        if (rb.velocity.y < 0f)
+        {
+            isJumping = false;
         }
 
         // Apply gravity scaling
@@ -101,15 +108,20 @@ public class PlayerScript : MonoBehaviour
 
         Debug.DrawRay(new Vector2(origin.x - leftRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
         Debug.DrawRay(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit2.collider != null ? Color.green : Color.red);
+
         if (hit.collider != null || hit2.collider != null)
         {
-            CoyoteTimeLeft = CoyoteTime;
+            KyoteeTimeLeft = KyoteeTime;
             return hit.collider != null || hit2.collider != null;
         }
-        else if (CoyoteTimeLeft > 0)
+        else if (KyoteeTimeLeft > 0)
         {
-            CoyoteTimeLeft -= Time.deltaTime;
-            return true;
+            KyoteeTimeLeft -= Time.deltaTime;
+            if (isJumping == false)
+            {
+                return true;
+
+            }
         }
         return false;
        
