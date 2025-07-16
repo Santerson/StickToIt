@@ -231,6 +231,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7811515836451146225, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
+      propertyPath: gravityAmplifier
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872334850595524852, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872334850595524852, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
