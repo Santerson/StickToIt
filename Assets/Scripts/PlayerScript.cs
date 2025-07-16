@@ -28,8 +28,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Jumping")]
     [Tooltip("How much should gravity be set to after the player releases the jump button mid-air?")]
     [SerializeField] private float gravityAmplifier = 1.5f;
-    [Tooltip("To spell or not to spell, fuck your spelling tho")]
-    [SerializeField] private float CoyoteTime = 0.2f;
+    [Tooltip("ehehehehhehehehehhhhhh")]
+    [SerializeField] private float KyoteeTime = 0.2f;
 
     [Header("Keybinds")]
     [SerializeField] private KeyCode leftKey = KeyCode.A;
@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private float ogGrav;
-    private float CoyoteTimeLeft = 0f;
+    private float KyoteeTimeLeft = 0f;
     bool isJumping = false;
 
     // awake
@@ -134,7 +134,7 @@ public class PlayerScript : MonoBehaviour
         //returns true if either raycast hit an object.
         if (hit.collider != null || hit2.collider != null)
         {
-            CoyoteTimeLeft = CoyoteTime;
+            KyoteeTimeLeft = KyoteeTime;
             return hit.collider != null || hit2.collider != null;
         }
         //reduces cyotee time if not touching collision
