@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SenceChanger : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
     [Tooltip("This is the Scence you can change to.")]
     [SerializeField] string Scene;
