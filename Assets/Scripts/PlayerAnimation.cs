@@ -5,8 +5,8 @@ using UnityEngine;
 public class playerAnim : MonoBehaviour
 {
     public Sprite idleSprite;
-    public Sprite hitSprite;
-    public Sprite hurtSprite;
+    public Sprite RunSprite;
+    public Sprite JumpSprite;
 
     private SpriteRenderer spriteRenderer;
 
@@ -22,26 +22,34 @@ public class playerAnim : MonoBehaviour
         spriteRenderer.sprite = idleSprite;
     }
 
-    public void SetHit()
+    public void SetRun()
     {
-        spriteRenderer.sprite = hitSprite;
+        spriteRenderer.sprite = RunSprite;
     }
 
-    public void SetHurt()
+    public void SetJump()
     {
-        spriteRenderer.sprite = hurtSprite;
+        spriteRenderer.sprite = JumpSprite;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button pressed
+        if (Input.GetKeyDown(KeyCode.Space)) // Space Pressed
         {
-            SetHit();
+            SetJump();
         }
         if (Input.GetMouseButtonUp(0)) // Left mouse button released
         {
             SetIdle();
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        { 
+            SetRun();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            SetRun();
         }
     }
 }
