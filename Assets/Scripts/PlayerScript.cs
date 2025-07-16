@@ -1,0 +1,93 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerScript : MonoBehaviour
+{
+    public bool hasKey = false;
+
+    [Header("Ground Detection")]
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float groundCheckDistance = 0.2f;
+    [SerializeField] private float playerHeight = 1.1f;
+
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpForce = 5f;
+
+    [Header("Gravity")]
+    [SerializeField] private float gravityAmplifier = 1.5f;
+
+    [Header("Keybinds")]
+    [SerializeField] private KeyCode leftKey = KeyCode.A;
+    [SerializeField] private KeyCode rightKey = KeyCode.D;
+    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+
+    private Rigidbody2D rb;
+    private float ogGrav;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        ogGrav = rb.gravityScale;
+    }
+
+    private void Update()
+    {
+        if (rb == null)
+        {
+            Debug.LogError("Player Rigidbody2D is not assigned.");
+            return;
+        }
+
+        HandleMovement();
+        HandleJumping();
+    }
+
+    private void HandleMovement()
+    {
+        float horizontalInput = 0f;
+
+        if (Input.GetKey(leftKey) && !Input.GetKey(rightKey))
+        {
+            horizontalInput = -moveSpeed;
+        }
+        else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
+        {
+            horizontalInput = moveSpeed;
+        }
+
+        rb.velocity = new Vector2(horizontalInput, rb.velocity.y);
+    }
+
+    private void HandleJumping()
+    {
+        bool grounded = IsGrounded();
+
+        if (grounded && Input.GetKeyDown(jumpKey))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        // Apply gravity scaling
+        if (!grounded)
+        {
+            rb.gravityScale = Input.GetKey(jumpKey) ? ogGrav : gravityAmplifier;
+        }
+        else
+        {
+            rb.gravityScale = ogGrav;
+        }
+    }
+
+    private bool IsGrounded()
+    {
+        Vector2 origin = new Vector2(transform.position.x, transform.position.y - playerHeight / 2f);
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
+
+        Debug.DrawRay(origin, Vector2.down * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
+
+        return hit.collider != null;
+    }
+}
