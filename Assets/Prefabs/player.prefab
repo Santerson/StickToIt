@@ -131,10 +131,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheckDistance: 0.2
-  playerHeight: 1.1
+  playerHeight: 0.5
   moveSpeed: 5
   jumpForce: 7
-  gravityAmplifier: 1.5
+  gravityAmplifier: 2
   leftKey: 97
   rightKey: 100
   jumpKey: 32
