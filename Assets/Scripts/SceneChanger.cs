@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    [Tooltip("This is the Scence you can change to.")]
-    [SerializeField] string Scene;
+    int currentLevel = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +19,28 @@ public class SceneChanger : MonoBehaviour
         
     }
     //Scence Change.
-    public void LevelChange()
+    public void goToLevel1()
     {
-        SceneManager.LoadScene(Scene);
+        currentLevel = 1;
+        SceneManager.LoadScene("lvl1");
+    }
+    public void goToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void goToEndScene()
+    {
+        SceneManager.LoadScene("EndScene");
+    }
+    public void quit()
+    {
+        Application.Quit();
+        Debug.LogWarning("Quitting the game");
+        EditorApplication.ExitPlaymode();
+    }
+    public void nextLevel()
+    {
+        currentLevel++;
+        SceneManager.LoadScene("lvl" + currentLevel);
     }
 }
