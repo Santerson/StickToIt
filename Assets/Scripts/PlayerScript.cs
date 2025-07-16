@@ -36,6 +36,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
 
+
+    //This is the animator for the player.
+    [Tooltip("This is the animator for the player")]
+    [SerializeField] Animator PlayerAnimation;
+
     private Rigidbody2D rb;
     private float ogGrav;
     private float KyoteeTimeLeft = 0f;
@@ -74,11 +79,23 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(leftKey) && !Input.GetKey(rightKey))
         {
             horizontalInput = -moveSpeed;
+            PlayerAnimation.SetBool("IsWalkingRight", true);
+            PlayerAnimation.SetBool("IsWaiting", false);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         //right movement
+
         else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
         {
             horizontalInput = moveSpeed;
+            PlayerAnimation.SetBool("IsWalkingRight", true);
+            PlayerAnimation.SetBool("IsWaiting", false);
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (!Input.GetKey(leftKey) && !Input.GetKey(rightKey))
+        {
+            PlayerAnimation.SetBool("IsWalkingRight", false);
+            PlayerAnimation.SetBool("IsWaiting", true);
         }
 
         //actually change the x velocity on the player
