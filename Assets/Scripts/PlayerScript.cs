@@ -12,6 +12,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.2f;
     [Tooltip("How far should the raycast be for checking the ground? [bottom point]")]
     [SerializeField] private float playerHeight = 1.1f;
+    [Tooltip("Left Raycast offset (positive)")]
+    [SerializeField] private float leftRaycastOffset = 0.2f;
+    [Tooltip("Right Raycast offset (positive)")]
+    [SerializeField] private float rightRaycastOffset = 0.2f;
 
     [Header("Movement")]
     [Tooltip("Take a wild guess...")]
@@ -89,10 +93,12 @@ public class PlayerScript : MonoBehaviour
     private bool IsGrounded()
     {
         Vector2 origin = new Vector2(transform.position.x, transform.position.y - playerHeight / 2f);
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(origin.x - leftRaycastOffset, origin.y), Vector2.down, groundCheckDistance, groundLayer);
+        RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down, groundCheckDistance, groundLayer);
 
-        Debug.DrawRay(origin, Vector2.down * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
+        Debug.DrawRay(new Vector2(origin.x - leftRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
+        Debug.DrawRay(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit2.collider != null ? Color.green : Color.red);
 
-        return hit.collider != null;
+        return hit.collider != null || hit2.collider != null;
     }
 }
