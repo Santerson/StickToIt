@@ -236,9 +236,13 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7872334850595524852, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
-      propertyPath: m_AngularDrag
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872334850595524852, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 34c97ae192812ff42b2390b225b9656a, type: 2}
     - target: {fileID: 7872334850595524852, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
       propertyPath: m_GravityScale
       value: 1.5
