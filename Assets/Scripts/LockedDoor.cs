@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class LockedDoor : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -9,8 +9,8 @@ public class Door : MonoBehaviour
             PlayerScript player = other.GetComponent<PlayerScript>();
             if (player != null && player.hasKey)
             {
-                Debug.Log("Door opens!");
-                Destroy(gameObject); // or trigger an animation
+                Debug.Log("Unlocked the door!");
+                Destroy(gameObject); // Reveals the real exit
             }
             else
             {
@@ -19,4 +19,3 @@ public class Door : MonoBehaviour
         }
     }
 }
-
