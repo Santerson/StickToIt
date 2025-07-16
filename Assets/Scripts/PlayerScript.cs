@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+
+    //A bunch of variables
     public bool hasKey = false;
 
     [Header("Ground Detection")]
@@ -26,8 +28,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Jumping")]
     [Tooltip("How much should gravity be set to after the player releases the jump button mid-air?")]
     [SerializeField] private float gravityAmplifier = 1.5f;
-    [Tooltip("To spell or not to spell, fuck your spelling tho")]
-    [SerializeField] private float CoyoteTime = 0.2f;
+    [Tooltip("ehehehehhehehehehhhhhh")]
+    [SerializeField] private float KyoteeTime = 0.2f;
 
     [Header("Keybinds")]
     [SerializeField] private KeyCode leftKey = KeyCode.A;
@@ -36,47 +38,59 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private float ogGrav;
-    private float CoyoteTimeLeft = 0f;
+    private float KyoteeTimeLeft = 0f;
     bool isJumping = false;
 
+    // awake
     private void Awake()
     {
+        //sets variables
+        //done to increase preformance
         rb = GetComponent<Rigidbody2D>();
         ogGrav = rb.gravityScale;
     }
 
     private void Update()
     {
+        //simple null check to prevent errors
         if (rb == null)
         {
             Debug.LogError("Player Rigidbody2D is not assigned.");
             return;
         }
 
+        //movement
         HandleMovement();
+        //jumping (grav is through unity's rigidbody)
         HandleJumping();
     }
 
     private void HandleMovement()
     {
+        
         float horizontalInput = 0f;
 
+        //left movement
         if (Input.GetKey(leftKey) && !Input.GetKey(rightKey))
         {
             horizontalInput = -moveSpeed;
         }
+        //right movement
         else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
         {
             horizontalInput = moveSpeed;
         }
 
+        //actually change the x velocity on the player
         rb.velocity = new Vector2(horizontalInput, rb.velocity.y);
     }
 
     private void HandleJumping()
     {
+        //check if player is grounded
         bool grounded = IsGrounded();
 
+        //jump if the player is grounded and is trying to jump
         if (grounded && Input.GetKeyDown(jumpKey))
         {
             isJumping = true;
@@ -84,6 +98,7 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
+        //stops the player 'jumping' after they stop going up
         if (rb.velocity.y < 0f)
         {
             isJumping = false;
@@ -92,31 +107,41 @@ public class PlayerScript : MonoBehaviour
         // Apply gravity scaling
         if (!grounded)
         {
+            //makes the gravity scale the original gravity if not holding jump
+            //otherwise makes them fall faster
             rb.gravityScale = Input.GetKey(jumpKey) ? ogGrav : gravityAmplifier;
         }
         else
         {
+            //edge case: player falls at normal speed (usually if falling off a block)
             rb.gravityScale = ogGrav;
         }
     }
 
     private bool IsGrounded()
     {
+        //sets the origin of the raycast to the bottom middle of the player
         Vector2 origin = new Vector2(transform.position.x, transform.position.y - playerHeight / 2f);
+
+        //sets a raycast on both the right/left bottom edge of the player
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(origin.x - leftRaycastOffset, origin.y), Vector2.down, groundCheckDistance, groundLayer);
         RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down, groundCheckDistance, groundLayer);
 
+        //debug draw rays: green if hit, red if not
         Debug.DrawRay(new Vector2(origin.x - leftRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
         Debug.DrawRay(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit2.collider != null ? Color.green : Color.red);
 
+        //returns true if either raycast hit an object.
         if (hit.collider != null || hit2.collider != null)
         {
-            CoyoteTimeLeft = CoyoteTime;
+            KyoteeTimeLeft = KyoteeTime;
             return hit.collider != null || hit2.collider != null;
         }
-        else if (CoyoteTimeLeft > 0)
+        //reduces cyotee time if not touching collision
+        else if (KyoteeTimeLeft > 0)
         {
-            CoyoteTimeLeft -= Time.deltaTime;
+            KyoteeTimeLeft -= Time.deltaTime;
+            //returns true if not jumped yet
             if (isJumping == false)
             {
                 return true;
