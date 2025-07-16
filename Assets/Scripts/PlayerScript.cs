@@ -8,14 +8,19 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Ground Detection")]
     [SerializeField] private LayerMask groundLayer;
+    [Tooltip("How long should the ground raycast be? [top point]")]
     [SerializeField] private float groundCheckDistance = 0.2f;
+    [Tooltip("How far should the raycast be for checking the ground? [bottom point]")]
     [SerializeField] private float playerHeight = 1.1f;
 
     [Header("Movement")]
+    [Tooltip("Take a wild guess...")]
     [SerializeField] private float moveSpeed = 5f;
+    [Tooltip("Jump height")]
     [SerializeField] private float jumpForce = 5f;
 
-    [Header("Gravity")]
+    [Header("Jumping")]
+    [Tooltip("How much should gravity be set to after the player releases the jump button mid-air?")]
     [SerializeField] private float gravityAmplifier = 1.5f;
 
     [Header("Keybinds")]
