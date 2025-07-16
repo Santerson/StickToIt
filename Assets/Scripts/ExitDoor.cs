@@ -19,7 +19,7 @@ public class ExitDoor : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Entering next scene...");
-            SceneManager.LoadScene(nextSceneName);
+            FindObjectOfType<SceneChanger>().nextLevel();
         }
     }
 
