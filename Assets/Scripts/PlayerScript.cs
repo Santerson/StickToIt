@@ -26,8 +26,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Jumping")]
     [Tooltip("How much should gravity be set to after the player releases the jump button mid-air?")]
     [SerializeField] private float gravityAmplifier = 1.5f;
-    [Tooltip("Or however you spell that :/ (seconds)")]
-    [SerializeField] private float kyoteeTime = 0.2f;
+    [Tooltip("Owo screw that spelling")]
+    [SerializeField] private float CoyoteTime = 0.2f;
 
     [Header("Keybinds")]
     [SerializeField] private KeyCode leftKey = KeyCode.A;
@@ -36,7 +36,7 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private float ogGrav;
-    private float kyoteeTimeLeft = 0f;
+    private float CoyoteTimeLeft = 0f;
 
     private void Awake()
     {
@@ -103,12 +103,12 @@ public class PlayerScript : MonoBehaviour
         Debug.DrawRay(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit2.collider != null ? Color.green : Color.red);
         if (hit.collider != null || hit2.collider != null)
         {
-            kyoteeTimeLeft = kyoteeTime;
+            CoyoteTimeLeft = CoyoteTime;
             return hit.collider != null || hit2.collider != null;
         }
-        else if (kyoteeTimeLeft > 0)
+        else if (CoyoteTimeLeft > 0)
         {
-            kyoteeTimeLeft -= Time.deltaTime;
+            CoyoteTimeLeft -= Time.deltaTime;
             return true;
         }
         return false;
