@@ -37,6 +37,7 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     private float ogGrav;
     private float KyoteeTimeLeft = 0f;
+    bool isJumping = false;
 
     private void Awake()
     {
@@ -78,8 +79,14 @@ public class PlayerScript : MonoBehaviour
 
         if (grounded && Input.GetKeyDown(jumpKey))
         {
+            isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        if (rb.velocity.y < 0f)
+        {
+            isJumping = false;
         }
 
         // Apply gravity scaling
@@ -101,6 +108,7 @@ public class PlayerScript : MonoBehaviour
 
         Debug.DrawRay(new Vector2(origin.x - leftRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
         Debug.DrawRay(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit2.collider != null ? Color.green : Color.red);
+
         if (hit.collider != null || hit2.collider != null)
         {
             KyoteeTimeLeft = KyoteeTime;
@@ -109,7 +117,11 @@ public class PlayerScript : MonoBehaviour
         else if (KyoteeTimeLeft > 0)
         {
             KyoteeTimeLeft -= Time.deltaTime;
-            return true;
+            if (isJumping == false)
+            {
+                return true;
+
+            }
         }
         return false;
        
