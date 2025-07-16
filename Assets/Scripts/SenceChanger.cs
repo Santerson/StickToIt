@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SenceChanger : MonoBehaviour
 {
     [Tooltip("This is the Scence you can change to.")]
-    [SerializeField] string Scence;
+    [SerializeField] string Scene;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,6 @@ public class SenceChanger : MonoBehaviour
     //Scence Change.
     public void LevelChange()
     {
-        SceneManager.LoadScene(Scence);
+        SceneManager.LoadScene(Scene);
     }
 }
