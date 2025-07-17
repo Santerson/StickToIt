@@ -6,38 +6,44 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    int currentLevel = 1;
-    // Start is called before the first frame update
+    int currentLevel;
+
     void Start()
     {
-        
+        // Try to extract the number from the current scene name like "lvl2"
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene.StartsWith("lvl"))
+        {
+            string levelNum = currentScene.Substring(3);
+            int.TryParse(levelNum, out currentLevel);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    //Scence Change.
     public void goToLevel1()
     {
-        currentLevel = 1;
         SceneManager.LoadScene("lvl1");
     }
+
     public void goToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
+
     public void goToEndScene()
     {
         SceneManager.LoadScene("EndScene");
     }
+
     public void quit()
     {
         Application.Quit();
         Debug.LogWarning("Quitting the game");
+#if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
+#endif
     }
+
     public void nextLevel()
     {
         currentLevel++;

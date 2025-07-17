@@ -1,25 +1,30 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ExitDoor : MonoBehaviour
 {
-    [SerializeField] private string nextSceneName;
-    [SerializeField] private GameObject pressEPrompt; // drag your Canvas/Text object here
+    [SerializeField] private GameObject pressEPrompt;
+    [SerializeField] private GameObject lockedDoor; // Drag your LockedDoor object here
 
     private bool playerInRange = false;
+    private SceneChanger sceneChanger;
 
     void Start()
     {
         if (pressEPrompt != null)
             pressEPrompt.SetActive(false);
+
+        // Cache reference to SceneChanger
+        sceneChanger = FindObjectOfType<SceneChanger>();
+        if (sceneChanger == null)
+            Debug.LogError("SceneChanger not found in scene.");
     }
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && lockedDoor == null && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Entering next scene...");
-            FindObjectOfType<SceneChanger>().nextLevel();
+            Debug.Log("Unlocked. Going to next level...");
+            sceneChanger.nextLevel();
         }
     }
 
@@ -28,7 +33,8 @@ public class ExitDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            if (pressEPrompt != null)
+
+            if (lockedDoor == null && pressEPrompt != null)
                 pressEPrompt.SetActive(true);
         }
     }
@@ -38,6 +44,7 @@ public class ExitDoor : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+
             if (pressEPrompt != null)
                 pressEPrompt.SetActive(false);
         }
