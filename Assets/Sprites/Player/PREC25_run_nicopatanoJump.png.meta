@@ -1,0 +1,532 @@
+fileFormatVersion: 2
+guid: 6ed38141aaafc6247ad56cc348b3f606
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1174
+        width: 271
+        height: 466
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2dec270d2ac0e4bb4dd20233e71171
+      internalID: -1174041469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_1
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1182
+        width: 268
+        height: 458
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 932e65d53891a284f97239a2a37695e9
+      internalID: 688728263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_2
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 1176
+        width: 273
+        height: 464
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b7b388ffa10c741b4f5ee1aa0711b1
+      internalID: 2113314964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_3
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 1167
+        width: 261
+        height: 473
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9851ea926307d304883dada73bcb6a0e
+      internalID: 842917776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_4
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1191
+        width: 263
+        height: 449
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24601df4d16d234cae617b6f55f277d
+      internalID: -537046559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_5
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1168
+        width: 261
+        height: 472
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c254ea85ebe83f74a8c0adaf6156aebf
+      internalID: 1418918342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_6
+      rect:
+        serializedVersion: 2
+        x: 1897
+        y: 1169
+        width: 253
+        height: 471
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fcadb4d8cf4af409805175d37334d2
+      internalID: -2133530058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 574
+        width: 268
+        height: 527
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 789a291ee4d73bb43a4f04d82041740c
+      internalID: 197511304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_8
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 607
+        width: 271
+        height: 493
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9492d9af22ac29419f15a1c44e46fc8
+      internalID: 1229519209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_9
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 619
+        width: 266
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 169cafa7caedb20478a67d5920f7924c
+      internalID: -701896640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_10
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 623
+        width: 268
+        height: 478
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2682851e1c6b7cb4f9495cc18ceff66f
+      internalID: 586060200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_11
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 630
+        width: 268
+        height: 471
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4659b01a263c04798aa4a3379ed29a
+      internalID: -2122889102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_12
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 630
+        width: 269
+        height: 471
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e01d54f9035cd54999fd54d0a9bf922
+      internalID: -677911172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_13
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 636
+        width: 269
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0063affc8398bc0409930cdca9fa09d1
+      internalID: -1586788302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 130
+        width: 258
+        height: 434
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f5332239d653e4faae770f48fac1f2
+      internalID: -32108465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_15
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 132
+        width: 259
+        height: 430
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d059361cc8ab20f4fb2a663436c9765c
+      internalID: -1296327259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_16
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 122
+        width: 276
+        height: 440
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb99dda8ce3b774ba387d81333d90b1
+      internalID: -5006218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_17
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 23
+        width: 269
+        height: 539
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75bae72109d2d5b44a78fd904c6d5572
+      internalID: 316616731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PREC25_run_nicopatanoJump_18
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 157
+        width: 2321
+        height: 1483
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f5e29365963de46a037e09f594aa12
+      internalID: -325620787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PREC25_run_nicopatanoJump_0: -1174041469
+      PREC25_run_nicopatanoJump_1: 688728263
+      PREC25_run_nicopatanoJump_10: 586060200
+      PREC25_run_nicopatanoJump_11: -2122889102
+      PREC25_run_nicopatanoJump_12: -677911172
+      PREC25_run_nicopatanoJump_13: -1586788302
+      PREC25_run_nicopatanoJump_14: -32108465
+      PREC25_run_nicopatanoJump_15: -1296327259
+      PREC25_run_nicopatanoJump_16: -5006218
+      PREC25_run_nicopatanoJump_17: 316616731
+      PREC25_run_nicopatanoJump_18: -325620787
+      PREC25_run_nicopatanoJump_2: 2113314964
+      PREC25_run_nicopatanoJump_3: 842917776
+      PREC25_run_nicopatanoJump_4: -537046559
+      PREC25_run_nicopatanoJump_5: 1418918342
+      PREC25_run_nicopatanoJump_6: -2133530058
+      PREC25_run_nicopatanoJump_7: 197511304
+      PREC25_run_nicopatanoJump_8: 1229519209
+      PREC25_run_nicopatanoJump_9: -701896640
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

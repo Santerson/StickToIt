@@ -79,7 +79,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(leftKey) && !Input.GetKey(rightKey))
         {
             horizontalInput = -moveSpeed;
-            PlayerAnimation.SetBool("IsWalkingRight", true);
+            PlayerAnimation.SetBool("IsWalking", true);
             PlayerAnimation.SetBool("IsWaiting", false);
             GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -88,13 +88,13 @@ public class PlayerScript : MonoBehaviour
         else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
         {
             horizontalInput = moveSpeed;
-            PlayerAnimation.SetBool("IsWalkingRight", true);
+            PlayerAnimation.SetBool("IsWalking", true);
             PlayerAnimation.SetBool("IsWaiting", false);
             GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (!Input.GetKey(leftKey) && !Input.GetKey(rightKey))
         {
-            PlayerAnimation.SetBool("IsWalkingRight", false);
+            PlayerAnimation.SetBool("IsWalking", false);
             PlayerAnimation.SetBool("IsWaiting", true);
         }
 
@@ -113,6 +113,9 @@ public class PlayerScript : MonoBehaviour
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            PlayerAnimation.SetBool("IsJumpingAnimation", true);
+            PlayerAnimation.SetBool("IsWalkingRight", false);
+            PlayerAnimation.SetBool("IsWaiting", false);
         }
 
         //stops the player 'jumping' after they stop going up
@@ -127,11 +130,17 @@ public class PlayerScript : MonoBehaviour
             //makes the gravity scale the original gravity if not holding jump
             //otherwise makes them fall faster
             rb.gravityScale = Input.GetKey(jumpKey) ? ogGrav : gravityAmplifier;
+            PlayerAnimation.SetBool("IsJumpingAnimation", true);
+            PlayerAnimation.SetBool("IsWalkingRight", false);
+            PlayerAnimation.SetBool("IsWaiting", false);
+
         }
         else
         {
             //edge case: player falls at normal speed (usually if falling off a block)
             rb.gravityScale = ogGrav;
+            PlayerAnimation.SetBool("IsJumpingAnimation", false);
+            PlayerAnimation.SetBool("IsWaiting", true);
         }
     }
 
