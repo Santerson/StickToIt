@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformerBaseLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 2769418273267498274, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_text
+      value: Level:1
+      objectReference: {fileID: 0}
     - target: {fileID: 3893854324759745502, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_Name
       value: Level Name
