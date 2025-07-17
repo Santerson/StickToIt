@@ -352,6 +352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 877588256425963949, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_text
+      value: 'Level: 3'
+      objectReference: {fileID: 0}
     - target: {fileID: 1348474724572574187, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_Name
       value: PlatformerBaseLevel
@@ -383,6 +387,22 @@ PrefabInstance:
     - target: {fileID: 2769418273267498274, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_fontSizeBase
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098270815734546412, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.8167
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098270815734546412, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -92
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175327518797749212, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_text
+      value: I made it wierd
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175327518797749212, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_margin.z
+      value: 22.082039
       objectReference: {fileID: 0}
     - target: {fileID: 3388588731604428369, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_LocalScale.x
@@ -523,6 +543,14 @@ PrefabInstance:
     - target: {fileID: 6036804044058076404, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_fontSizeBase
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332455408777959186, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6332455408777959186, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 281
       objectReference: {fileID: 0}
     - target: {fileID: 6551358936259490829, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_LocalScale.x
