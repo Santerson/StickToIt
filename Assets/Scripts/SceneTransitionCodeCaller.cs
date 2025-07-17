@@ -9,4 +9,14 @@ public class SceneTransitionCodeCaller : MonoBehaviour
     {
         FindObjectOfType<SceneChanger>().goToMainMenu();
     }
+
+    public void goTolvl1()
+    {
+        FindObjectOfType<SceneChanger>().goToLevel1();
+    }
+
+    public void rageQuit()
+    {
+        Application.Quit();
+    }
 }
