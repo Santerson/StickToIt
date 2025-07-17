@@ -133,11 +133,7 @@ PrefabInstance:
 <<<<<<< HEAD
     - target: {fileID: 877588256425963949, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_text
-<<<<<<< HEAD
       value: 'Level:'
-=======
-      value: 'Level: 1'
->>>>>>> 14f55572cbd2fe6d5eac0430f6d5c810a33358ff
       objectReference: {fileID: 0}
 =======
 >>>>>>> parent of 3fd44fa (f)
@@ -148,14 +144,6 @@ PrefabInstance:
     - target: {fileID: 2769418273267498274, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_text
       value: Level:1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3146163266796774541, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
-      propertyPath: lockedDoor
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175327518797749212, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
-      propertyPath: m_text
-      value: And so it begins
       objectReference: {fileID: 0}
     - target: {fileID: 3893854324759745502, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_Name
@@ -212,7 +200,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7728993197559864843, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1306366043}
+      addedObject: {fileID: 810314146}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
 --- !u!1 &810314145
@@ -241,11 +229,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810314145}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.9193127, y: 2.9193127, z: 2.9193127}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   m_Father: {fileID: 753821363}
@@ -255,10 +244,13 @@ RectTransform:
 =======
   m_Father: {fileID: 1318982783}
 >>>>>>> parent of 3fd44fa (f)
+=======
+  m_Father: {fileID: 753821363}
+>>>>>>> parent of fb9e941 (Update lvl1.unity)
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28.041943, y: 30}
+  m_AnchoredPosition: {x: -307, y: 109}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &810314147
@@ -281,7 +273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use A and D to move
+  m_text: 'A and D to move
 
     Press Space to jump'
   m_isRightToLeft: 0
@@ -414,6 +406,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!4 &1015639160 stripped
 Transform:
@@ -530,6 +523,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 753821362}
   m_PrefabAsset: {fileID: 0}
 >>>>>>> parent of 3fd44fa (f)
+=======
+>>>>>>> parent of fb9e941 (Update lvl1.unity)
 --- !u!1 &1929764087
 GameObject:
   m_ObjectHideFlags: 0
