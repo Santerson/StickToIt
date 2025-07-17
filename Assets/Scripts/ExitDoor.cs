@@ -28,14 +28,16 @@ public class ExitDoor : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
         {
-            playerInRange = true;
+            if (collision.CompareTag("Player"))
+            {
+                playerInRange = true;
 
-            if (lockedDoor == null && pressEPrompt != null)
-                pressEPrompt.SetActive(true);
+                if (lockedDoor == null && pressEPrompt != null)
+                    pressEPrompt.SetActive(true);
+            }
         }
     }
 
