@@ -150,6 +150,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformerBaseLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 1645418758692668187, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645418758692668187, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 2078254240752838608, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0350492
@@ -235,7 +243,8 @@ PrefabInstance:
       value: 0.62548125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 611243088037463486, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}

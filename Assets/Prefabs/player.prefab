@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7872334850595524852}
   - component: {fileID: 7811515836451146225}
   - component: {fileID: 1575907516333642155}
-  - component: {fileID: 8062541252891020167}
+  - component: {fileID: 3271258966064208176}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -142,7 +142,7 @@ MonoBehaviour:
   leftKey: 97
   rightKey: 100
   jumpKey: 32
-  PlayerAnimation: {fileID: 8062541252891020167}
+  PlayerAnimation: {fileID: 3271258966064208176}
 --- !u!61 &1575907516333642155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4005632, y: 4.280259}
   m_EdgeRadius: 0
---- !u!95 &8062541252891020167
+--- !u!95 &3271258966064208176
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
