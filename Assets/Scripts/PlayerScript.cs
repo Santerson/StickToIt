@@ -86,6 +86,7 @@ public class PlayerScript : MonoBehaviour
             PlayerAnimation.SetBool("IsWalking", true);
             PlayerAnimation.SetBool("IsWaiting", false);
             GetComponent<SpriteRenderer>().flipX = true;
+            PlayerAnimation.Play("Wait");
         }
         //right movement
         else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
@@ -94,19 +95,19 @@ public class PlayerScript : MonoBehaviour
             PlayerAnimation.SetBool("IsWalking", true);
             PlayerAnimation.SetBool("IsWaiting", false);
             GetComponent<SpriteRenderer>().flipX = false;
+
         }
-        else if (!Input.GetKey(leftKey) && !Input.GetKey(rightKey))
+        else if (!Input.GetKey(leftKey) && !Input.GetKey(rightKey) && !Input.GetKey(jumpKey))
         {
             PlayerAnimation.SetBool("IsWalking", false);
             PlayerAnimation.SetBool("IsWaiting", true);
-            PlayerAnimation.SetBool("WalkingTap", true);
-            PlayerAnimation.Play("Wait");
+
+
         }
-        else if (Input.GetKeyUp(leftKey) && Input.GetKeyUp(rightKey))
+        else if (Input.GetKeyUp(leftKey) && Input.GetKeyUp(rightKey) && !Input.GetKey(jumpKey))
         {
             PlayerAnimation.SetBool("IsWalking", false);
             PlayerAnimation.SetBool("IsWaiting", true);
-            PlayerAnimation.SetBool("WalkingTap", true);
             PlayerAnimation.Play("Wait");
         }
 
@@ -128,6 +129,7 @@ public class PlayerScript : MonoBehaviour
             PlayerAnimation.SetBool("IsJumpingAnimation", true);
             PlayerAnimation.SetBool("IsWalkingRight", false);
             PlayerAnimation.SetBool("IsWaiting", false);
+            PlayerAnimation.Play("Jump");
         }
 
         //stops the player 'jumping' after they stop going up
@@ -145,6 +147,7 @@ public class PlayerScript : MonoBehaviour
             PlayerAnimation.SetBool("IsJumpingAnimation", true);
             PlayerAnimation.SetBool("IsWalkingRight", false);
             PlayerAnimation.SetBool("IsWaiting", false);
+            PlayerAnimation.Play("Wait");
         }
         else
         {
