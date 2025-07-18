@@ -10,13 +10,16 @@ public class SceneChanger : MonoBehaviour
 
     void Start()
     {
-        // Try to extract the number from the current scene name like "lvl2"
         string currentScene = SceneManager.GetActiveScene().name;
 
         if (currentScene.StartsWith("lvl"))
         {
             string levelNum = currentScene.Substring(3);
             int.TryParse(levelNum, out currentLevel);
+        }
+        else if (currentScene == "MainMenu")
+        {
+            currentLevel = 0; // or 1 depending on your system
         }
     }
 

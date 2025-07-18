@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // <-- Needed for resetting the level
 
 public class PlayerScript : MonoBehaviour
 {
-
     //A bunch of variables
     public bool hasKey = false;
 
@@ -28,14 +28,13 @@ public class PlayerScript : MonoBehaviour
     [Header("Jumping")]
     [Tooltip("How much should gravity be set to after the player releases the jump button mid-air?")]
     [SerializeField] private float gravityAmplifier = 1.5f;
-    [Tooltip("ehehehehhehehehehhhhhh")]
-    [SerializeField] private float KyoteeTime = 0.2f;
+    [Tooltip("Machine... I will cut you down, break you apart, splay the gore of your profane form across the STARS! I will grind you down until the very SPARKS CRY FOR MERCY! My hands shall RELISH ENDING YOU... HERE! AND! NOW!")]
+    [SerializeField] private float CoyoteTime = 0.2f;
 
     [Header("Keybinds")]
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
-
 
     //This is the animator for the player.
     [Tooltip("This is the animator for the player")]
@@ -43,14 +42,14 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private float ogGrav;
-    private float KyoteeTimeLeft = 0f;
+    private float CoyoteTimeLeft = 0f;
     bool isJumping = false;
 
     // awake
     private void Awake()
     {
         //sets variables
-        //done to increase preformance
+        //done to increase performance
         rb = GetComponent<Rigidbody2D>();
         ogGrav = rb.gravityScale;
     }
@@ -68,11 +67,16 @@ public class PlayerScript : MonoBehaviour
         HandleMovement();
         //jumping (grav is through unity's rigidbody)
         HandleJumping();
+
+        // Reset level when R is pressed
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     private void HandleMovement()
     {
-        
         float horizontalInput = 0f;
 
         //left movement
@@ -84,7 +88,6 @@ public class PlayerScript : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
         }
         //right movement
-
         else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
         {
             horizontalInput = moveSpeed;
@@ -133,7 +136,6 @@ public class PlayerScript : MonoBehaviour
             PlayerAnimation.SetBool("IsJumpingAnimation", true);
             PlayerAnimation.SetBool("IsWalkingRight", false);
             PlayerAnimation.SetBool("IsWaiting", false);
-
         }
         else
         {
@@ -160,21 +162,19 @@ public class PlayerScript : MonoBehaviour
         //returns true if either raycast hit an object.
         if (hit.collider != null || hit2.collider != null)
         {
-            KyoteeTimeLeft = KyoteeTime;
-            return hit.collider != null || hit2.collider != null;
+            CoyoteTimeLeft = CoyoteTime;
+            return true;
         }
-        //reduces cyotee time if not touching collision
-        else if (KyoteeTimeLeft > 0)
+        //reduces coyote time if not touching collision
+        else if (CoyoteTimeLeft > 0)
         {
-            KyoteeTimeLeft -= Time.deltaTime;
+            CoyoteTimeLeft -= Time.deltaTime;
             //returns true if not jumped yet
-            if (isJumping == false)
+            if (!isJumping)
             {
                 return true;
-
             }
         }
         return false;
-       
     }
 }
