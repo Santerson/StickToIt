@@ -45,6 +45,16 @@ public class PlayerScript : MonoBehaviour
     private float KyoteeTimeLeft = 0f;
     bool isJumping = false;
 
+    enum State
+    {
+        idle,
+        walk,
+        jumping,
+        falling
+    }
+    State state = State.idle;
+    
+
     // awake
     private void Awake()
     {
@@ -67,47 +77,72 @@ public class PlayerScript : MonoBehaviour
         HandleMovement();
         //jumping (grav is through unity's rigidbody)
         HandleJumping();
-
         // Reset level when R is pressed
+        
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
+    private void ChangeAnimation(State newState)
+    {
+        if (newState == state)
+        {
+            return;
+        }
+        
+        state = newState;
+
+    }
+
     private void HandleMovement()
     {
+        State temp = state;
         float horizontalInput = 0f;
 
-        //left movement
         if (Input.GetKey(leftKey) && !Input.GetKey(rightKey))
         {
             horizontalInput = -moveSpeed;
-            PlayerAnimation.SetBool("IsWalking", true);
-            PlayerAnimation.SetBool("IsWaiting", false);
             GetComponent<SpriteRenderer>().flipX = true;
-
+            ChangeAnimation(State.walk);
         }
-        //right movement
         else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
         {
             horizontalInput = moveSpeed;
-            PlayerAnimation.SetBool("IsWalking", true);
-            PlayerAnimation.SetBool("IsWaiting", false);
             GetComponent<SpriteRenderer>().flipX = false;
+            ChangeAnimation(State.walk);
+        }
+        else
+        {
+            ChangeAnimation(State.idle);
+        }
+
+        if (Mathf.Abs(rb.velocity.y) > 0.1f)
+        {
+            ChangeAnimation(State.jumping);
+        }
+
+        if (state == temp)
+        {
 
         }
-        else if (!Input.GetKey(leftKey) && !Input.GetKey(rightKey) && !Input.GetKey(jumpKey))
+        else if (state == State.walk)
         {
-            PlayerAnimation.SetBool("IsWalking", false);
-            PlayerAnimation.SetBool("IsWaiting", true);
-            PlayerAnimation.Play("Wait");
-
+            PlayerAnimation.Play("Move");
         }
-        else if (Input.GetKeyUp(leftKey) && Input.GetKeyUp(rightKey) && !Input.GetKey(jumpKey))
+        else if (state == State.jumping)
         {
-            PlayerAnimation.SetBool("IsWalking", false);
-            PlayerAnimation.SetBool("IsWaiting", true);
+            PlayerAnimation.Play("Jump");
+        }
+        else if (state == State.falling)
+        {
+            //Insert falling animation here
+            PlayerAnimation.Play("Jump");
+        }
+        else if (state == State.idle)
+        {
             PlayerAnimation.Play("Wait");
         }
 
@@ -126,8 +161,6 @@ public class PlayerScript : MonoBehaviour
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-
-            PlayerAnimation.Play("Jump");
         }
 
         //stops the player 'jumping' after they stop going up
@@ -142,17 +175,15 @@ public class PlayerScript : MonoBehaviour
             //makes the gravity scale the original gravity if not holding jump
             //otherwise makes them fall faster
             rb.gravityScale = Input.GetKey(jumpKey) ? ogGrav : gravityAmplifier;
-            PlayerAnimation.SetBool("IsJumpingAnimation", true);
-            PlayerAnimation.SetBool("IsWalkingRight", false);
-            PlayerAnimation.SetBool("IsWaiting", false);
-            PlayerAnimation.Play("Wait");
+            //PlayerAnimation.SetBool("IsJumpingAnimation", true);
+            //PlayerAnimation.SetBool("IsWalkingRight", false);
+            //PlayerAnimation.SetBool("IsWaiting", false);
+            //PlayerAnimation.Play("Wait");
         }
         else
         {
             //edge case: player falls at normal speed (usually if falling off a block)
             rb.gravityScale = ogGrav;
-            PlayerAnimation.SetBool("IsJumpingAnimation", false);
-            PlayerAnimation.SetBool("IsWaiting", true);
         }
     }
 
