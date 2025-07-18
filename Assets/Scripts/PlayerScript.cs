@@ -29,7 +29,7 @@ public class PlayerScript : MonoBehaviour
     [Tooltip("How much should gravity be set to after the player releases the jump button mid-air?")]
     [SerializeField] private float gravityAmplifier = 1.5f;
     [Tooltip("Machine... I will cut you down, break you apart, splay the gore of your profane form across the STARS! I will grind you down until the very SPARKS CRY FOR MERCY! My hands shall RELISH ENDING YOU... HERE! AND! NOW!")]
-    [SerializeField] private float CoyoteTime = 0.2f;
+    [SerializeField] private float KyoteeTime = 0.2f;
 
     [Header("Keybinds")]
     [SerializeField] private KeyCode leftKey = KeyCode.A;
@@ -42,7 +42,7 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private float ogGrav;
-    private float CoyoteTimeLeft = 0f;
+    private float KyoteeTimeLeft = 0f;
     bool isJumping = false;
 
     // awake
@@ -99,6 +99,15 @@ public class PlayerScript : MonoBehaviour
         {
             PlayerAnimation.SetBool("IsWalking", false);
             PlayerAnimation.SetBool("IsWaiting", true);
+            PlayerAnimation.SetBool("WalkingTap", true);
+            PlayerAnimation.Play("Wait");
+        }
+        else if (Input.GetKeyUp(leftKey) && Input.GetKeyUp(rightKey))
+        {
+            PlayerAnimation.SetBool("IsWalking", false);
+            PlayerAnimation.SetBool("IsWaiting", true);
+            PlayerAnimation.SetBool("WalkingTap", true);
+            PlayerAnimation.Play("Wait");
         }
 
         //actually change the x velocity on the player
@@ -162,13 +171,13 @@ public class PlayerScript : MonoBehaviour
         //returns true if either raycast hit an object.
         if (hit.collider != null || hit2.collider != null)
         {
-            CoyoteTimeLeft = CoyoteTime;
+            KyoteeTimeLeft = KyoteeTime;
             return true;
         }
         //reduces coyote time if not touching collision
-        else if (CoyoteTimeLeft > 0)
+        else if (KyoteeTimeLeft > 0)
         {
-            CoyoteTimeLeft -= Time.deltaTime;
+            KyoteeTimeLeft -= Time.deltaTime;
             //returns true if not jumped yet
             if (!isJumping)
             {
