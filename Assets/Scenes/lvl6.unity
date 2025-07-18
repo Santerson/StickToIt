@@ -417,6 +417,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 877588256425963949, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_text
+      value: Level:6
+      objectReference: {fileID: 0}
     - target: {fileID: 1348474724572574187, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_Name
       value: PlatformerBaseLevel
@@ -428,6 +432,10 @@ PrefabInstance:
     - target: {fileID: 1645418758692668187, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175327518797749212, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_text
+      value: Just Married!
       objectReference: {fileID: 0}
     - target: {fileID: 4970859421373622447, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_LocalPosition.x
