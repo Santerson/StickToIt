@@ -86,7 +86,7 @@ public class PlayerScript : MonoBehaviour
             PlayerAnimation.SetBool("IsWalking", true);
             PlayerAnimation.SetBool("IsWaiting", false);
             GetComponent<SpriteRenderer>().flipX = true;
-            PlayerAnimation.Play("Wait");
+
         }
         //right movement
         else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
@@ -101,7 +101,7 @@ public class PlayerScript : MonoBehaviour
         {
             PlayerAnimation.SetBool("IsWalking", false);
             PlayerAnimation.SetBool("IsWaiting", true);
-
+            PlayerAnimation.Play("Wait");
 
         }
         else if (Input.GetKeyUp(leftKey) && Input.GetKeyUp(rightKey) && !Input.GetKey(jumpKey))
@@ -126,9 +126,7 @@ public class PlayerScript : MonoBehaviour
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            PlayerAnimation.SetBool("IsJumpingAnimation", true);
-            PlayerAnimation.SetBool("IsWalkingRight", false);
-            PlayerAnimation.SetBool("IsWaiting", false);
+
             PlayerAnimation.Play("Jump");
         }
 
