@@ -122,7 +122,31 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &740854914
+--- !u!1 &111659770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 611243088037463486, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+  m_PrefabInstance: {fileID: 8963656794029260251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1389026205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4407856205345134307, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+  m_PrefabInstance: {fileID: 8963656794029260251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1389026208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389026205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e135697b74f69ca44964c9a3347e77f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressEPrompt: {fileID: 1905100753}
+  lockedDoor: {fileID: 111659770}
+--- !u!1 &1549593761
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,9 +154,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 740854917}
-  - component: {fileID: 740854916}
-  - component: {fileID: 740854915}
+  - component: {fileID: 1549593764}
+  - component: {fileID: 1549593763}
+  - component: {fileID: 1549593762}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -140,21 +164,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &740854915
+--- !u!81 &1549593762
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740854914}
+  m_GameObject: {fileID: 1549593761}
   m_Enabled: 1
---- !u!20 &740854916
+--- !u!20 &1549593763
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740854914}
+  m_GameObject: {fileID: 1549593761}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -199,13 +223,13 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &740854917
+--- !u!4 &1549593764
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740854914}
+  m_GameObject: {fileID: 1549593761}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
@@ -214,7 +238,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1816706700
+--- !u!1 &1905100753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9203560892070157811, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+  m_PrefabInstance: {fileID: 8963656794029260251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8963656794029260251
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -222,21 +251,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 877588256425963949, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
-      propertyPath: m_text
-      value: Level:2
-      objectReference: {fileID: 0}
     - target: {fileID: 1348474724572574187, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_Name
       value: PlatformerBaseLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 2769418273267498274, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
-      propertyPath: m_text
-      value: Level:2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175327518797749212, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
-      propertyPath: m_text
-      value: I locked the door :3
       objectReference: {fileID: 0}
     - target: {fileID: 4970859421373622447, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -278,26 +295,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5897079784927565062, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
-      propertyPath: m_text
-      value: I Locked The Door Btw :3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897079784927565062, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
-      propertyPath: m_fontSize
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 5897079784927565062, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 34
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4407856205345134307, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1389026208}
   m_SourcePrefab: {fileID: 100100000, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 740854917}
-  - {fileID: 1816706700}
+  - {fileID: 1549593764}
+  - {fileID: 8963656794029260251}
