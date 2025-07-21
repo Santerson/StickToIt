@@ -36,7 +36,11 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+
+    [Header("Polish")]
     [SerializeField] private AudioClip JumpSound;
+    [SerializeField] private ParticleSystem RunParticles;
+    [SerializeField] private ParticleSystem JumpParticles;
 
     //This is the animator for the player.
     [Tooltip("This is the animator for the player")]
@@ -99,6 +103,22 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    ParticleSystem psToBeMade = null;
+    [SerializeField] int frameSkip = 3;
+    int framesLeftBeforePS = 3;
+    private void FixedUpdate()
+    {
+        if (psToBeMade != null && framesLeftBeforePS <= 2)
+        {
+            Instantiate(psToBeMade, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
+            framesLeftBeforePS = frameSkip;
+        }
+        else
+        {
+            framesLeftBeforePS--;
+        }
+    }
+
     private void HandleMovement()
     {
         State temp = state;
@@ -109,16 +129,20 @@ public class PlayerScript : MonoBehaviour
             horizontalInput = -moveSpeed;
             GetComponent<SpriteRenderer>().flipX = true;
             ChangeAnimation(State.walk);
+            psToBeMade = RunParticles;
         }
         else if (Input.GetKey(rightKey) && !Input.GetKey(leftKey))
         {
             horizontalInput = moveSpeed;
             GetComponent<SpriteRenderer>().flipX = false;
             ChangeAnimation(State.walk);
+            psToBeMade = RunParticles;
+
         }
         else
         {
             ChangeAnimation(State.idle);
+            psToBeMade = null;
         }
 
         if (Mathf.Abs(rb.velocity.y) > 0.1f || !IsGrounded())
