@@ -108,7 +108,7 @@ public class PlayerScript : MonoBehaviour
     int framesLeftBeforePS = 3;
     private void FixedUpdate()
     {
-        if (psToBeMade != null && framesLeftBeforePS <= 2)
+        if (psToBeMade != null && framesLeftBeforePS <= 2 && IsGrounded())
         {
             Instantiate(psToBeMade, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
             framesLeftBeforePS = frameSkip;
@@ -188,7 +188,8 @@ public class PlayerScript : MonoBehaviour
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            
+            Instantiate(JumpParticles, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
+
             if (JumpSound != null)
             {
                 AudioSource.PlayClipAtPoint(JumpSound, transform.position);
