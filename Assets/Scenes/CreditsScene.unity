@@ -247,7 +247,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 07e893a69ab45a643ba6a41d6939bcd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -357,10 +357,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 4cbcfc8a15a1fe44ea2df112213b6541, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 1063907294}
+        m_TargetAssemblyTypeName: SceneTransitionCodeCaller, Assembly-CSharp
+        m_MethodName: goToStartScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1063907290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cbcfc8a15a1fe44ea2df112213b6541, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d76b082b043b244c8e5b8c5357dbb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1075448269
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1571378351
 Canvas:
   m_ObjectHideFlags: 0
@@ -982,8 +982,8 @@ Canvas:
   m_GameObject: {fileID: 1571378348}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 2
+  m_Camera: {fileID: 1063907292}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1004,8 +1004,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571378348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.019242713, y: 0.019242713, z: 0.019242713}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1825072635}
@@ -1019,8 +1019,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 923.65027, y: 519.67725}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1825072634
 GameObject:
   m_ObjectHideFlags: 0
