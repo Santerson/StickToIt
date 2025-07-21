@@ -191,6 +191,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7811515836451146225, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 649dcce86dc46704f8b185c42c60b1ab, type: 3}
+    - target: {fileID: 7811515836451146225, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
       propertyPath: kyoteeTime
       value: 0.2
       objectReference: {fileID: 0}
