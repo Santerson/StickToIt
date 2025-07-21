@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement; // <-- Needed for resetting the level
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -36,6 +36,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private KeyCode leftKey = KeyCode.A;
     [SerializeField] private KeyCode rightKey = KeyCode.D;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] private AudioClip JumpSound;
 
     //This is the animator for the player.
     [Tooltip("This is the animator for the player")]
@@ -163,6 +164,11 @@ public class PlayerScript : MonoBehaviour
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            
+            if (JumpSound != null)
+            {
+                AudioSource.PlayClipAtPoint(JumpSound, transform.position);
+            }
         }
 
         //stops the player 'jumping' after they stop going up
