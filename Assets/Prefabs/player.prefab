@@ -144,6 +144,7 @@ MonoBehaviour:
   jumpKey: 32
   JumpSound: {fileID: 0}
   RunParticles: {fileID: 675484616454118190, guid: 4f669af482d844a408ccedbbda377817, type: 3}
+  JumpParticles: {fileID: 3375145235609416351, guid: 298abc043da4f924ca0f4d4f474fbb9e, type: 3}
   PlayerAnimation: {fileID: 3271258966064208176}
   frameSkip: 3
 --- !u!61 &1575907516333642155
