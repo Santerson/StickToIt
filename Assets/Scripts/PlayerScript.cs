@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement; // <-- Needed for resetting the level
 
@@ -119,7 +120,7 @@ public class PlayerScript : MonoBehaviour
             ChangeAnimation(State.idle);
         }
 
-        if (Mathf.Abs(rb.velocity.y) > 0.1f)
+        if (Mathf.Abs(rb.velocity.y) > 0.1f || !IsGrounded())
         {
             ChangeAnimation(State.jumping);
         }
@@ -140,6 +141,7 @@ public class PlayerScript : MonoBehaviour
         {
             //Insert falling animation here
             PlayerAnimation.Play("Jump");
+
         }
         else if (state == State.idle)
         {
