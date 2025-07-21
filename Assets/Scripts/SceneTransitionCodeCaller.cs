@@ -20,4 +20,9 @@ public class SceneTransitionCodeCaller : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void goToCredits()
+    {
+        SceneManager.LoadScene("CreditsScene");
+    }
 }

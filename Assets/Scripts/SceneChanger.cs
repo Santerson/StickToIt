@@ -40,11 +40,8 @@ public class SceneChanger : MonoBehaviour
 
     public void quit()
     {
-        Application.Quit();
         Debug.LogWarning("Quitting the game");
-#if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-#endif
+        Application.Quit();
     }
 
     public void nextLevel()
