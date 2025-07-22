@@ -153,9 +153,13 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        if (Mathf.Abs(rb.velocity.y) > 0.1f || !isGroundedNow)
+        if (rb.velocity.y > 0.1f && !isGroundedNow)
         {
             ChangeAnimation(State.jumping);
+        }
+        else if (!isGroundedNow)
+        {
+            ChangeAnimation(State.falling);
         }
 
         if (state != temp)
@@ -171,6 +175,10 @@ public class PlayerScript : MonoBehaviour
             else if (state == State.idle)
             {
                 PlayerAnimation.Play("Wait");
+            }
+            if (state == State.falling)
+            {
+                PlayerAnimation.Play("Fall");
             }
         }
 
