@@ -753,7 +753,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3175327518797749212, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_text
-      value: Whoops
+      value: Think before you do
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175327518797749212, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_margin.z
+      value: -20.179718
       objectReference: {fileID: 0}
     - target: {fileID: 4970859421373622447, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_LocalPosition.x
