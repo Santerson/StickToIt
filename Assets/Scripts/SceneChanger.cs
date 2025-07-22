@@ -19,7 +19,7 @@ public class SceneChanger : MonoBehaviour
         }
         else if (currentScene == "MainMenu")
         {
-            currentLevel = 0; // or 1 depending on your system
+            currentLevel = 1; // or 1 depending on your system
         }
     }
 
