@@ -6,30 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
-    //A bunch of variables
     public bool hasKey = false;
 
     [Header("Ground Detection")]
     [SerializeField] private LayerMask groundLayer;
-    [Tooltip("How long should the ground raycast be? [top point]")]
     [SerializeField] private float groundCheckDistance = 0.2f;
-    [Tooltip("How far should the raycast be for checking the ground? [bottom point]")]
     [SerializeField] private float playerHeight = 1.1f;
-    [Tooltip("Left Raycast offset (positive)")]
     [SerializeField] private float leftRaycastOffset = 0.2f;
-    [Tooltip("Right Raycast offset (positive)")]
     [SerializeField] private float rightRaycastOffset = 0.2f;
 
     [Header("Movement")]
-    [Tooltip("Take a wild guess...")]
     [SerializeField] private float moveSpeed = 5f;
-    [Tooltip("Jump height")]
     [SerializeField] private float jumpForce = 5f;
 
     [Header("Jumping")]
-    [Tooltip("How much should gravity be set to after the player releases the jump button mid-air?")]
     [SerializeField] private float gravityAmplifier = 1.5f;
-    [Tooltip("Machine... I will cut you down, break you apart, splay the gore of your profane form across the STARS! I will grind you down until the very SPARKS CRY FOR MERCY! My hands shall RELISH ENDING YOU... HERE! AND! NOW!")]
     [SerializeField] private float KyoteeTime = 0.2f;
 
     [Header("Keybinds")]
@@ -38,74 +29,74 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
 
     [Header("Polish")]
-    [SerializeField] private AudioClip JumpSound;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landSound;
+    [SerializeField] private AudioClip runSound;
     [SerializeField] private ParticleSystem RunParticles;
     [SerializeField] private ParticleSystem JumpParticles;
 
-    //This is the animator for the player.
     [Tooltip("This is the animator for the player")]
-    [SerializeField] Animator PlayerAnimation;
+    [SerializeField] private Animator PlayerAnimation;
 
     private Rigidbody2D rb;
     private float ogGrav;
     private float KyoteeTimeLeft = 0f;
-    bool isJumping = false;
+    private bool isJumping = false;
+    private bool wasGroundedLastFrame = false;
+    private AudioSource runAudioSource;
 
-    enum State
-    {
-        idle,
-        walk,
-        jumping,
-        falling
-    }
+    enum State { idle, walk, jumping, falling }
     State state = State.idle;
-    
 
-    // awake
     private void Awake()
     {
-        //sets variables
-        //done to increase performance
         rb = GetComponent<Rigidbody2D>();
         ogGrav = rb.gravityScale;
+
+        runAudioSource = gameObject.AddComponent<AudioSource>();
+        runAudioSource.clip = runSound;
+        runAudioSource.loop = true;
+        runAudioSource.playOnAwake = false;
     }
 
     private void Update()
     {
-        //simple null check to prevent errors
         if (rb == null)
         {
             Debug.LogError("Player Rigidbody2D is not assigned.");
             return;
         }
 
-        //movement
         HandleMovement();
-        //jumping (grav is through unity's rigidbody)
         HandleJumping();
-        // Reset level when R is pressed
-        
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        // Handle landing sound
+        bool grounded = IsGrounded();
+        if (!wasGroundedLastFrame && grounded)
+        {
+            if (landSound != null)
+            {
+                AudioSource.PlayClipAtPoint(landSound, transform.position);
+            }
+        }
+        wasGroundedLastFrame = grounded;
     }
 
     private void ChangeAnimation(State newState)
     {
-        if (newState == state)
-        {
-            return;
-        }
-        
+        if (newState == state) return;
         state = newState;
-
     }
 
     ParticleSystem psToBeMade = null;
     [SerializeField] int frameSkip = 3;
     int framesLeftBeforePS = 3;
+
     private void FixedUpdate()
     {
         if (psToBeMade != null && framesLeftBeforePS <= 2 && IsGrounded())
@@ -137,7 +128,6 @@ public class PlayerScript : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
             ChangeAnimation(State.walk);
             psToBeMade = RunParticles;
-
         }
         else
         {
@@ -145,44 +135,52 @@ public class PlayerScript : MonoBehaviour
             psToBeMade = null;
         }
 
-        if (Mathf.Abs(rb.velocity.y) > 0.1f || !IsGrounded())
+        bool isGroundedNow = IsGrounded();
+        bool isMovingHorizontally = Mathf.Abs(horizontalInput) > 0.1f;
+
+        if (isGroundedNow && isMovingHorizontally)
+        {
+            if (!runAudioSource.isPlaying)
+            {
+                runAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (runAudioSource.isPlaying)
+            {
+                runAudioSource.Stop();
+            }
+        }
+
+        if (Mathf.Abs(rb.velocity.y) > 0.1f || !isGroundedNow)
         {
             ChangeAnimation(State.jumping);
         }
 
-        if (state == temp)
+        if (state != temp)
         {
-
-        }
-        else if (state == State.walk)
-        {
-            PlayerAnimation.Play("Move");
-        }
-        else if (state == State.jumping)
-        {
-            PlayerAnimation.Play("Jump");
-        }
-        else if (state == State.falling)
-        {
-            //Insert falling animation here
-            PlayerAnimation.Play("Jump");
-
-        }
-        else if (state == State.idle)
-        {
-            PlayerAnimation.Play("Wait");
+            if (state == State.walk)
+            {
+                PlayerAnimation.Play("Move");
+            }
+            else if (state == State.jumping || state == State.falling)
+            {
+                PlayerAnimation.Play("Jump");
+            }
+            else if (state == State.idle)
+            {
+                PlayerAnimation.Play("Wait");
+            }
         }
 
-        //actually change the x velocity on the player
         rb.velocity = new Vector2(horizontalInput, rb.velocity.y);
     }
 
     private void HandleJumping()
     {
-        //check if player is grounded
         bool grounded = IsGrounded();
 
-        //jump if the player is grounded and is trying to jump
         if (grounded && Input.GetKeyDown(jumpKey))
         {
             isJumping = true;
@@ -190,60 +188,45 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             Instantiate(JumpParticles, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
 
-            if (JumpSound != null)
+            if (jumpSound != null)
             {
-                AudioSource.PlayClipAtPoint(JumpSound, transform.position);
+                AudioSource.PlayClipAtPoint(jumpSound, transform.position);
             }
         }
 
-        //stops the player 'jumping' after they stop going up
         if (rb.velocity.y < 0f)
         {
             isJumping = false;
         }
 
-        // Apply gravity scaling
         if (!grounded)
         {
-            //makes the gravity scale the original gravity if not holding jump
-            //otherwise makes them fall faster
             rb.gravityScale = Input.GetKey(jumpKey) ? ogGrav : gravityAmplifier;
-            //PlayerAnimation.SetBool("IsJumpingAnimation", true);
-            //PlayerAnimation.SetBool("IsWalkingRight", false);
-            //PlayerAnimation.SetBool("IsWaiting", false);
-            //PlayerAnimation.Play("Wait");
         }
         else
         {
-            //edge case: player falls at normal speed (usually if falling off a block)
             rb.gravityScale = ogGrav;
         }
     }
 
     private bool IsGrounded()
     {
-        //sets the origin of the raycast to the bottom middle of the player
         Vector2 origin = new Vector2(transform.position.x, transform.position.y - playerHeight / 2f);
 
-        //sets a raycast on both the right/left bottom edge of the player
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(origin.x - leftRaycastOffset, origin.y), Vector2.down, groundCheckDistance, groundLayer);
         RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down, groundCheckDistance, groundLayer);
 
-        //debug draw rays: green if hit, red if not
         Debug.DrawRay(new Vector2(origin.x - leftRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit.collider != null ? Color.green : Color.red);
         Debug.DrawRay(new Vector2(origin.x + rightRaycastOffset, origin.y), Vector2.down * groundCheckDistance, hit2.collider != null ? Color.green : Color.red);
 
-        //returns true if either raycast hit an object.
         if (hit.collider != null || hit2.collider != null)
         {
             KyoteeTimeLeft = KyoteeTime;
             return true;
         }
-        //reduces coyote time if not touching collision
         else if (KyoteeTimeLeft > 0)
         {
             KyoteeTimeLeft -= Time.deltaTime;
-            //returns true if not jumped yet
             if (!isJumping)
             {
                 return true;
