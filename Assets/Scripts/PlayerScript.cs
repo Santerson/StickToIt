@@ -34,6 +34,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private AudioClip runSound;
     [SerializeField] private ParticleSystem RunParticles;
     [SerializeField] private ParticleSystem JumpParticles;
+    [SerializeField] private ParticleSystem LandParticles;
 
     [Tooltip("This is the animator for the player")]
     [SerializeField] private Animator PlayerAnimation;
@@ -160,6 +161,11 @@ public class PlayerScript : MonoBehaviour
         else if (!isGroundedNow)
         {
             ChangeAnimation(State.falling);
+        }
+
+        if (temp == State.falling && isGroundedNow)
+        {
+            Instantiate(LandParticles, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
         }
 
         if (state != temp)
