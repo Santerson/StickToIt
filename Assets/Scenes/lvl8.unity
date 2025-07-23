@@ -1024,8 +1024,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 58652835019579791, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2593777
+      objectReference: {fileID: 0}
+    - target: {fileID: 58652835019579791, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 11.01
       objectReference: {fileID: 0}
     - target: {fileID: 58652835019579791, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1067,14 +1071,6 @@ PrefabInstance:
       propertyPath: m_text
       value: Level:8
       objectReference: {fileID: 0}
-    - target: {fileID: 3134168343052968097, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.8167
-      objectReference: {fileID: 0}
-    - target: {fileID: 3134168343052968097, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -92
-      objectReference: {fileID: 0}
     - target: {fileID: 3283281266699732113, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
       propertyPath: m_text
       value: I made it wierd
@@ -1086,14 +1082,6 @@ PrefabInstance:
     - target: {fileID: 6160950376774531424, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
       propertyPath: m_Name
       value: LevelUI (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6224238293477050463, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6224238293477050463, guid: 7b68b18951323cb44a9c2bd1dd3537bd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 281
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

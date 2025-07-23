@@ -55,16 +55,39 @@ public class SceneChanger : MonoBehaviour
         currentLevel++;
         if (currentLevel == 6)
         {
-            GameObject.Find("gameMusic").GetComponent<AudioSource>().Pause();
+            try
+            {
+
+                GameObject.Find("gameMusic").GetComponent<AudioSource>().Pause();
+            }
+            catch
+            {
+
+            }
         }
         else if (currentLevel == 7)
         {
-            GameObject.Find("gameMusic").GetComponent<AudioSource>().UnPause();
+            try
+            {
+                GameObject.Find("gameMusic").GetComponent<AudioSource>().UnPause();
+            }
+            catch
+            {
+
+            }
         }
         if (currentLevel >= 11)
         {
-            GameObject.Find("gameMusic").GetComponent<AudioSource>().Stop();
-            GameObject.Find("mainMenuMusic").GetComponent<AudioSource>().Play();
+            try
+            {
+                GameObject.Find("gameMusic").GetComponent<AudioSource>().Stop();
+                GameObject.Find("mainMenuMusic").GetComponent<AudioSource>().Play();
+
+            }
+            catch
+            {
+
+            }
         }
         SceneManager.LoadScene("lvl" + currentLevel);
     }
