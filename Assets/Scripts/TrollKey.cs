@@ -4,6 +4,7 @@ public class TrollKey : MonoBehaviour
 {
     [SerializeField] private GameObject exitInScene;         // Reference to current Exit object in the scene
     [SerializeField] private GameObject exitWithDoorPrefab;  // Reference to the Exit With Door prefab
+    [SerializeField] AudioSource keySfx;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +15,8 @@ public class TrollKey : MonoBehaviour
             {
                 Vector3 position = exitInScene.transform.position;
                 Quaternion rotation = exitInScene.transform.rotation;
+
+                keySfx.Play();
 
                 Destroy(exitInScene);
                 Instantiate(exitWithDoorPrefab, position, rotation);

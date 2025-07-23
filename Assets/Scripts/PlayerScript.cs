@@ -168,7 +168,7 @@ public class PlayerScript : MonoBehaviour
             {
                 PlayerAnimation.Play("Move");
             }
-            else if (state == State.jumping || state == State.falling)
+            else if (state == State.jumping )
             {
                 PlayerAnimation.Play("Jump");
             }

@@ -8,12 +8,12 @@ public class SceneTransitionCodeCaller : MonoBehaviour
     // Start is called before the first frame update
     public void goToStartScene()
     {
-        SceneManager.LoadScene("MainMenu");
+        FindObjectOfType<SceneChanger>().goToMainMenu();
     }
 
     public void goTolvl1()
     {
-        SceneManager.LoadScene("lvl1");
+        FindObjectOfType<SceneChanger>().goToLevel1();
     }
 
     public void rageQuit()

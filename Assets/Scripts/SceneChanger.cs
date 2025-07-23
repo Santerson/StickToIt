@@ -8,6 +8,9 @@ public class SceneChanger : MonoBehaviour
 {
     int currentLevel;
 
+    [SerializeField] AudioSource menuMusic;
+    [SerializeField] AudioSource gameMusic;
+
     void Start()
     {
         string currentScene = SceneManager.GetActiveScene().name;
@@ -25,11 +28,14 @@ public class SceneChanger : MonoBehaviour
 
     public void goToLevel1()
     {
+        GameObject.Find("gameMusic").GetComponent<AudioSource>().Play();
+        GameObject.Find("mainMenuMusic").GetComponent<AudioSource>().Stop();
         SceneManager.LoadScene("lvl1");
     }
 
     public void goToMainMenu()
     {
+
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -47,6 +53,19 @@ public class SceneChanger : MonoBehaviour
     public void nextLevel()
     {
         currentLevel++;
+        if (currentLevel == 6)
+        {
+            GameObject.Find("gameMusic").GetComponent<AudioSource>().Pause();
+        }
+        else if (currentLevel == 7)
+        {
+            GameObject.Find("gameMusic").GetComponent<AudioSource>().UnPause();
+        }
+        if (currentLevel >= 11)
+        {
+            GameObject.Find("gameMusic").GetComponent<AudioSource>().Stop();
+            GameObject.Find("mainMenuMusic").GetComponent<AudioSource>().Play();
+        }
         SceneManager.LoadScene("lvl" + currentLevel);
     }
 }

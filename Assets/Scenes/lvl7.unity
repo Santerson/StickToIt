@@ -358,6 +358,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!82 &1008091658 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4739688206055476908, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+  m_PrefabInstance: {fileID: 8963656794029260251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1549593761
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitInScene: {fileID: 1585751127}
   exitWithDoorPrefab: {fileID: 4353624942222922316, guid: 0319894db7e3d034bb4676c06f873cb2, type: 3}
+  keySfx: {fileID: 1008091658}
 --- !u!1001 &8963656794029260251
 PrefabInstance:
   m_ObjectHideFlags: 0
