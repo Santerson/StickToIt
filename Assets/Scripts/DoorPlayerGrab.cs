@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class DoorPlayerGrab : MonoBehaviour
 {
+    [SerializeField] AudioSource keySound;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             // Set player's hasKey to true
             other.GetComponent<DoorPlayer>().hasKey = true;
+
+            if (keySound != null)
+            {
+                keySound.Play();
+            }
 
             // Destroy the key object
             Destroy(gameObject);
