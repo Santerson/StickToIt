@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class ExitDoor : MonoBehaviour
 {
     [SerializeField] private GameObject pressEPrompt;
     [SerializeField] private GameObject lockedDoor; // Drag your LockedDoor object here
+    [SerializeField] private AudioSource Audio;
 
     private bool playerInRange = false;
     private SceneChanger sceneChanger;
@@ -24,8 +26,32 @@ public class ExitDoor : MonoBehaviour
         if (playerInRange && lockedDoor == null && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Unlocked. Going to next level...");
-            sceneChanger.nextLevel();
+            try
+            {
+                Audio.Play();
+                Destroy(FindObjectOfType<PlayerScript>().gameObject);
+            }
+            catch
+            {
+                try
+                {
+                    Destroy(FindObjectOfType<DoorPlayer>().gameObject);
+                }
+                catch
+                {
+
+                    Debug.LogError("AN error occured");
+                }
+            }
+
+            StartCoroutine(waitBeforeTransition());
         }
+    }
+
+    IEnumerator waitBeforeTransition()
+    {
+        yield return new WaitForSeconds(1f); // Wait for 1 second before transitioning
+        sceneChanger.nextLevel();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
