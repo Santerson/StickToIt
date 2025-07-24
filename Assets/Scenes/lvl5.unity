@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 734319256}
   - component: {fileID: 734319257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressEPrompt: {fileID: 1905100753}
   lockedDoor: {fileID: 111659770}
+  Audio: {fileID: 0}
 --- !u!4 &1432765639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4970859421373622447, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
@@ -339,6 +340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3241219580040228567, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3626807223408158834, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.21156412
@@ -391,6 +396,10 @@ PrefabInstance:
       propertyPath: kyoteeTime
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7872334850595524852, guid: 06bf73af714dc254aba390cf1d71147b, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -417,6 +426,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 611243088037463486, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 877588256425963949, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_text
       value: Level:5
@@ -476,6 +489,10 @@ PrefabInstance:
     - target: {fileID: 4970859421373622447, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314410866833685405, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
