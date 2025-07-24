@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7d406aab720aa45af1d5460c59916a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keySound: {fileID: 0}
+  keyParticleSystem: {fileID: 2557133479724919272, guid: 804c391ec4505844bad96b1292391b4d, type: 3}
 --- !u!70 &4315820211364097180
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

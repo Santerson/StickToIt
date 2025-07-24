@@ -5,6 +5,7 @@ using UnityEngine;
 public class KeyPickup : MonoBehaviour
 {
     [SerializeField] AudioSource keySound;
+    [SerializeField] GameObject keyParticleSystem; // Particle system to play when the key is picked up
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -17,6 +18,7 @@ public class KeyPickup : MonoBehaviour
                 keySound.Play();
 
             }
+            Instantiate(keyParticleSystem, transform.position, Quaternion.identity);
 
             // Destroy the key object
             Destroy(gameObject);

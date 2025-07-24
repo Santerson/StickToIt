@@ -372,6 +372,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keySound: {fileID: 1974196800}
+  keyPS: {fileID: 2557133479724919272, guid: 804c391ec4505844bad96b1292391b4d, type: 3}
+--- !u!82 &1932499050 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4847945151009740562, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+  m_PrefabInstance: {fileID: 8963656794029260251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1974196800 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4739688206055476908, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
@@ -394,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74cce11204430404a904c165a89e4465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorLockedSound: {fileID: 1932499050}
 --- !u!1001 &8963656794029260251
 PrefabInstance:
   m_ObjectHideFlags: 0

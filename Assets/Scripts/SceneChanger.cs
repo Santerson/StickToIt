@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -75,6 +77,32 @@ public class SceneChanger : MonoBehaviour
             {
 
             }
+        }
+        else if (currentLevel == 9)
+        {
+            try
+            {
+                GameObject.Find("gameMusic").GetComponent<AudioSource>().Pause();
+                GameObject.Find("goofyNewsMusic").GetComponent<AudioSource>().Play();
+            }
+            catch
+            {
+
+            }
+        }
+        else if (currentLevel == 10)
+        {
+            try
+            {
+
+                GameObject.Find("goofyNewsMusic").GetComponent<AudioSource>().Stop();
+                GameObject.Find("gameMusic").GetComponent<AudioSource>().UnPause();
+            }
+            catch
+            {
+
+            }
+            
         }
         if (currentLevel >= 11)
         {

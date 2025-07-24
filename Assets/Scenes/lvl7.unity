@@ -533,6 +533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressEPrompt: {fileID: 89430180}
   lockedDoor: {fileID: 0}
+  Audio: {fileID: 8963656794029260252}
 --- !u!212 &1585751130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -737,6 +738,7 @@ MonoBehaviour:
   exitInScene: {fileID: 1585751127}
   exitWithDoorPrefab: {fileID: 4353624942222922316, guid: 0319894db7e3d034bb4676c06f873cb2, type: 3}
   keySfx: {fileID: 1008091658}
+  keyPs: {fileID: 2557133479724919272, guid: 804c391ec4505844bad96b1292391b4d, type: 3}
 --- !u!1001 &8963656794029260251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -813,6 +815,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+--- !u!82 &8963656794029260252 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5872984421201905337, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+  m_PrefabInstance: {fileID: 8963656794029260251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -548,6 +548,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+--- !u!82 &783256774 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5872984421201905337, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+  m_PrefabInstance: {fileID: 783256773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &783256775 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4847945151009740562, guid: 007a0f6df66f13545b0c79cb01921adb, type: 3}
+  m_PrefabInstance: {fileID: 783256773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &952252825
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694808d7f0426a14ba8923b0b1fbd54e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorLockedSound: {fileID: 783256775}
 --- !u!212 &1027023913
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1166,6 +1177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressEPrompt: {fileID: 983669870}
   lockedDoor: {fileID: 1027023910}
+  Audio: {fileID: 783256774}
 --- !u!212 &1774065384
 SpriteRenderer:
   m_ObjectHideFlags: 0
