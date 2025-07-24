@@ -45,6 +45,7 @@ public class DoorPlayer : MonoBehaviour
     private bool wasGroundedLastFrame = false;
     private AudioSource runAudioSource;
 
+    public bool haltPlayer = false;
     enum State { idle, walk, jumping, falling }
     State state = State.idle;
 
@@ -61,6 +62,8 @@ public class DoorPlayer : MonoBehaviour
 
     private void Update()
     {
+        if (haltPlayer) 
+            return;
         if (rb == null)
         {
             Debug.LogError("Player Rigidbody2D is not assigned.");
@@ -95,6 +98,13 @@ public class DoorPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (haltPlayer)
+        {
+            rb.velocity = Vector2.zero;
+            rb.gravityScale = 0;
+            return;
+
+        }
         if (psToBeMade != null && framesLeftBeforePS <= 2 && IsGrounded())
         {
             Instantiate(psToBeMade, new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
